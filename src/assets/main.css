@@ -26,9 +26,29 @@ a {
   transition: 0.4s;
 }
 
+.details{
+  color: rgba(235, 235, 235, 0.64);
+}
+
+i {
+  display: flex;
+  color: #af9259;
+  place-items: center;
+  place-content: center;
+}
+
 .fade-in {
   animation: fadeInAnimation 0.8s ease-in-out forwards;
   opacity: 0;
+}
+
+.active-nav {
+  .details {
+    color: #f4cd7c;
+  }
+  i {
+    color: #f4cd7c;
+  }
 }
 
 hr{
@@ -48,6 +68,22 @@ hr{
       50% calc(50% + var(--s)/2 + var(--b)/2)/calc(4*var(--s)) calc(var(--s) + var(--b)) repeat-x;
 }
 
+.slide-left {
+  opacity: 0;
+  animation: slideLeftAnimation 1s forwards;
+}
+
+@keyframes slideLeftAnimation {
+  from {
+    opacity: 0;
+    transform: translateX(-5%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+}
+
 @keyframes fadeInAnimation {
   from {
     opacity: 0;
@@ -59,34 +95,18 @@ hr{
   }
 }
 
-.slide-left {
-  animation: slideLeftAnimation 0.8s ease-in-out forwards;
-  opacity: 0;
-}
-
 .slide-right {
   animation: slideRightAnimation 0.8s ease-in-out forwards;
-}
-
-@keyframes slideLeftAnimation {
-  from {
-    opacity: 0;
-    transform: translateX(-80px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0px);
-  }
 }
 
 @keyframes slideRightAnimation {
   from {
     opacity: 0;
-    transform: translateX(0px);
+    transform: translateX(0%);
   }
   to {
     opacity: 1;
-    transform: translateX(-80px);
+    transform: translateX(-30%);
   }
 }
 

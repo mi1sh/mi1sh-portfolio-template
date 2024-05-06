@@ -25,31 +25,19 @@
   }
  }
 
-i {
-  display: flex;
-  color: #af9259;
-  place-items: center;
-  place-content: center;
-}:hover {
-  .details {
-    color: #f4cd7c;
-  }
- }
-
 h3 {
   font-size: 1rem;
   font-weight: 500;
   margin: 2vh 0vh 2vh 0vh;
 }
 
-.details{
-  color: rgba(235, 235, 235, 0.64);
-  transition: ease-in-out 0.4s;
-}
-
 @media (min-width: 1024px) {
   .item {
     padding: 1rem 0 1rem calc(var(--section-gap) / 2.5);
+  }
+
+  .details:hover {
+    color: #f4cd7c;
   }
 
   i {

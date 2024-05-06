@@ -1,5 +1,25 @@
+<template>
+  <header>
+    <HomePage :isLargeScreen="isLargeScreen"/>
+    <hr>
+    <AboutPage />
+    <hr>
+    <ProjectsPage />
+    <hr>
+    <LearningPage />
+  </header>
+
+  <main>
+    <div class="gradient-bar"></div>
+    <div class="navbar-wrapper slide-right" :class="{ 'navbar-visible': isLargeScreen }">
+      <NavBar v-show="isLargeScreen"/>
+    </div>
+  </main>
+</template>
+
 <script setup lang="ts">
-import { onMounted, onUnmounted, ref } from 'vue'
+import {useActiveSectionService} from '@/services/activeSectionService'
+import { onMounted, onUnmounted, ref, provide } from 'vue'
 import { useRouter } from 'vue-router';
 import NavBar from './components/NavBar.vue'
 import HomePage from '@/components/pages/HomePage.vue'
@@ -7,9 +27,12 @@ import AboutPage from '@/components/pages/AboutPage.vue'
 import ProjectsPage from '@/components/pages/ProjectsPage.vue'
 import LearningPage from '@/components/pages/LearningPage.vue'
 
+const { activeSection, animate } = useActiveSectionService();
+provide('activeSection', activeSection);
+provide('animate', animate);
+
 const router = useRouter();
 
-const isLoaded = ref(false)
 const isLargeScreen = ref(false)
 let unsubscribe: any;
 
@@ -26,10 +49,6 @@ onMounted(() => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   });
-
-  setTimeout(() => {
-    isLoaded.value = true
-  }, 500)
 })
 
 onUnmounted(() => {
@@ -40,24 +59,6 @@ onUnmounted(() => {
 })
 </script>
 
-<template>
-  <header>
-    <HomePage :isLargeScreen="isLargeScreen"/>
-    <hr>
-    <AboutPage />
-    <hr>
-    <ProjectsPage />
-    <hr>
-    <LearningPage />
-  </header>
-
-  <main>
-    <div class="gradient-bar"></div>
-    <div class="navbar-wrapper slide-right" v-show="isLoaded" :class="{ 'navbar-visible': isLargeScreen }">
-      <NavBar v-show="isLargeScreen"/>
-    </div>
-  </main>
-</template>
 
 <style>
 .navbar-wrapper {

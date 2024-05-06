@@ -1,14 +1,34 @@
+<template>
+  <PageWrapper :animate="shouldAnimate">
+    <section :key="$route.path" id="home" class="wrapper">
+      <img alt="mi1sh logo" class="logo" src="../../assets/logo.jpg" />
+      <div>
+        <IntroCard intro="React, Next and Vue confident user" name="mi1sh" msg="Web developer" />
+      </div>
+    </section>
+  </PageWrapper>
+</template>
+
 <script setup lang="ts">
 import IntroCard from '@/components/IntroCard.vue'
-import { onMounted, ref } from 'vue'
+import { onMounted, ref, watchEffect } from 'vue'
+import { inject } from 'vue';
+import { useRoute } from 'vue-router';
+import PageWrapper from '@/components/pages/PageWrapper.vue'
+
+const activeSection = inject('activeSection');
+const animate = inject('animate');
+
+const route = useRoute();
+const isLoaded = ref(false)
 
 defineProps<{
   isLargeScreen: boolean,
 }>()
-
-const isLoaded = ref(false)
+const isHomePage = ref(false);
 
 onMounted(() => {
+  isHomePage.value = route.path === '/';
   const element = document.getElementById('home');
   if (element) {
     element.scrollIntoView({ behavior: 'smooth' });
@@ -17,18 +37,17 @@ onMounted(() => {
     isLoaded.value = true
   }, 500)
 })
+
+const shouldAnimate = ref(false);
+watchEffect(() => {
+  if (isHomePage.value && !shouldAnimate.value) {
+    shouldAnimate.value = true;
+  }
+});
 </script>
 
-<template>
-  <section class="wrapper">
-    <img alt="mi1sh logo" v-show="isLoaded" :class="{'logo fade-in': !isLargeScreen, 'logo slide-left': isLargeScreen}" src="../../assets/logo.jpg" />
-    <div :class="{'fade-in': !isLargeScreen, 'slide-left': isLargeScreen}" v-show="isLoaded">
-      <IntroCard intro="React, Next and Vue confident user" name="mi1sh" msg="Web developer" />
-    </div>
-  </section>
-</template>
-
 <style scoped>
+
 .logo {
   width: 15em;
   border-radius: 100%;

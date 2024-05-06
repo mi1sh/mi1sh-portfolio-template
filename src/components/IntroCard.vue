@@ -14,7 +14,7 @@ defineProps<{
   <div class="greetings">
     <h2>{{ msg }}</h2>
     <div>
-      <h1 class="gold"><span style="font-size: 0.6em">{{ `<` }}</span>{{ name }}<span style="font-size: 0.6em">{{ `/>` }}</span></h1>
+      <h1 class="typing-text gold"><span style="font-size: 0.6em">{{ `<` }}</span>{{ name }}<span style="font-size: 0.6em; padding-right: 0.1em">{{ `/>` }}</span></h1>
       <div class="contacts">
         <a class="contacts-item" href="https://github.com/mi1sh" target="_blank"><IconGithub/></a>
         <a class="contacts-item" href="https://t.me/m1ish" target="_blank"><IconTelegram/></a>
@@ -26,6 +26,23 @@ defineProps<{
 </template>
 
 <style scoped>
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+.typing-text {
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 0.05em solid #f4cd7c; /* Используйте любой цвет */
+  animation: typing 1s steps(25, end), blink-caret .99s step-end infinite;
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent; }
+  50% { border-color: #a68b57; } /* Используйте тот же цвет, что и для текста */
+}
+
 .contacts {
   justify-content: center;
   display: flex;

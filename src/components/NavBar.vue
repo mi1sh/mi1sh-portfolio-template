@@ -1,14 +1,6 @@
-<script setup lang="ts">
-import NavBarItem from '@/components/NavBarItem.vue'
-import HomeIcon from './icons/IconHome.vue'
-import AboutIcon from './icons/IconAbout.vue'
-import LearningIcon from './icons/IconLearning.vue'
-import ProjectsIcon from './icons/IconProjects.vue'
-</script>
-
 <template>
-  <router-link to="/">
-    <NavBarItem>
+  <router-link to="/" :class="{ 'active-nav': activeSection === 'home' }">
+    <NavBarItem >
       <template #icon>
         <HomeIcon />
       </template>
@@ -16,8 +8,8 @@ import ProjectsIcon from './icons/IconProjects.vue'
     </NavBarItem>
   </router-link>
 
-  <router-link to="/about" >
-    <NavBarItem>
+  <router-link to="/about" :class="{ 'active-nav': activeSection === 'about' }">
+    <NavBarItem >
       <template #icon>
         <AboutIcon />
       </template>
@@ -25,8 +17,8 @@ import ProjectsIcon from './icons/IconProjects.vue'
     </NavBarItem>
   </router-link>
 
-  <router-link to="/projects">
-    <NavBarItem>
+  <router-link to="/projects" :class="{ 'active-nav': activeSection === 'projects' }">
+    <NavBarItem >
       <template #icon>
         <ProjectsIcon />
       </template>
@@ -34,7 +26,7 @@ import ProjectsIcon from './icons/IconProjects.vue'
     </NavBarItem>
   </router-link>
 
-  <router-link to="/learning">
+  <router-link to="/learning" :class="{ 'active-nav': activeSection === 'learning' }">
     <NavBarItem>
       <template #icon>
         <LearningIcon />
@@ -43,6 +35,42 @@ import ProjectsIcon from './icons/IconProjects.vue'
     </NavBarItem>
   </router-link>
 </template>
+
+<script setup lang="ts">
+import NavBarItem from '@/components/NavBarItem.vue'
+import HomeIcon from './icons/IconHome.vue'
+import AboutIcon from './icons/IconAbout.vue'
+import LearningIcon from './icons/IconLearning.vue'
+import ProjectsIcon from './icons/IconProjects.vue'
+
+import { onUnmounted, ref } from 'vue';
+
+const activeSection = ref('home');
+
+const checkActiveSection = () => {
+  const sections = ['home', 'about', 'projects', 'learning'];
+  let currentSection = 'home';
+
+  sections.forEach(section => {
+    const element = document.getElementById(section);
+    if (element) {
+      const rect = element.getBoundingClientRect();
+      if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
+        currentSection = section;
+      }
+    }
+  });
+
+  activeSection.value = currentSection;
+};
+
+// Отслеживайте прокрутку страницы
+window.addEventListener('scroll', checkActiveSection);
+onUnmounted(() => {
+  window.removeEventListener('scroll', checkActiveSection);
+});
+// Удаляйт
+</script>
 
 <style scoped>
 </style>
