@@ -63,6 +63,7 @@ watchEffect(() => {
 @media (min-width: 740px) {
   .wrapper {
     padding-left: 10em;
+    padding-top: 0;
     padding-bottom: 0;
     flex-direction: row;
   }

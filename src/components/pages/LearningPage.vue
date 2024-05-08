@@ -7,7 +7,7 @@
         <CertificateItem image="src/assets/udemy-js-react-cert.jpg" title="Full Javascript + React course" organisation="Udemy" description="" pageLink="https://ude.my/UC-ca0e2190-f5b7-40bc-a7fd-0af7196c6951"/>
         <CertificateItem image="src/assets/webdev-cert.jpg" title="WEB-developer" organisation="Udemy" description="" pageLink="https://ude.my/UC-f44fbaee-3deb-4761-a98b-eae3f425704c"/>
         <CertificateItem image="src/assets/ts-cert.jpg" title="Typescript for modern development" organisation="Udemy" description="" pageLink="https://ude.my/UC-937e5838-a508-4fa3-b486-65263d57f180"/>
-        <CertificateItem image="src/assets/stepik-wp-cert.png" title="Wordpress, site layout and transfer to CMS" organisation="Stepik" description="" pageLink="https://ude.my/UC-937e5838-a508-4fa3-b486-65263d57f180"/>
+        <CertificateItem image="src/assets/stepik-wp-cert.png" title="Wordpress, site layout and transfer to CMS" organisation="Stepik" description="" pageLink="https://stepik.org/cert/2224679"/>
       </div>
     </section>
   </PageWrapper>

@@ -5,7 +5,7 @@
     </a>
     <div class="certificate-content">
       <div style="line-height: 1.2em; width: 100%; text-align: center">
-        <h3 class="dark-gold">{{ title }}</h3><span style="font-size: 70%"> (from {{organisation}})</span>
+        <h3 class="dark-gold">{{ title }}</h3><span style="font-size: 70%"> (from {{ organisation }})</span>
       </div>
       <p>{{ description }}</p>
     </div>
@@ -57,11 +57,12 @@ a:hover {
 
 @media (min-width: 740px) {
   .certificate-item {
+    width: 100%;
     justify-content: center;
     display: flex;
+    gap: 1em;
     flex-direction: row;
   }
-
   .certificate-content {
     width: 30%;
     display: flex;
