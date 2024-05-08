@@ -2,6 +2,7 @@
   <PageWrapper :animate="animate">
     <section id="projects" class="wrapper">
       <div class="projects-wrapper">
+        <h1 class="gold projects-title">Projects</h1>
         <div class="projects-cards">
           <ProjectCard title="Typespeed - test" image="src/assets/typespeed-test-cover.png" githubLink="https://github.com/mi1sh/typespeed-test" pageLink="https://typespeed-test.vercel.app/" description="My simple application for practice in typing text" :icons="[JavascriptIcon, ReactIcon]"/>
           <ProjectCard title="Add - some - text" image="src/assets/add-some-text-cover.png" githubLink="https://github.com/mi1sh/add-some-text" pageLink="https://add-some-text.vercel.app/" description="A simple photo editor (or meme creator), made using next.js" :icons="[TypescriptIcon, NextIcon]"/>
@@ -15,7 +16,6 @@
 
 <script setup lang="ts">
 
-import 'swiper/swiper-bundle.css';
 import ProjectCard from '@/components/ProjectCard.vue'
 import TypescriptIcon from '@/components/icons/TypescriptIcon.vue'
 import JavascriptIcon from '@/components/icons/JavascriptIcon.vue'
@@ -43,62 +43,44 @@ onMounted(async () => {
 });
 
 onUnmounted(() => {
-  // Удалите обработчик события при размонтировании компонента
   window.removeEventListener('resize', checkScreenSize);
 });
-
-const cards = ref([
-  {
-    title: "Typespeed - test",
-    image: "src/assets/typespeed-test-cover.png",
-    githubLink: "https://github.com/mi1sh/typespeed-test",
-    pageLink: "https://typespeed-test.vercel.app/",
-    description: "My simple application for practice in typing text",
-    icons: [JavascriptIcon, ReactIcon],
-  },
-  {
-    title: "Add - some - text",
-    image: "src/assets/add-some-text-cover.png",
-    githubLink: "https://github.com/mi1sh/add-some-text",
-    pageLink: "https://add-some-text.vercel.app/",
-    description: "A simple photo editor (or meme creator), made using next.js",
-    icons: [TypescriptIcon, NextIcon],
-  },
-  {
-    title: "Boykisser clicker",
-    image: "src/assets/boykisser-clicker-cover.png",
-    githubLink: "https://github.com/mi1sh/boykisser-clicker",
-    pageLink: "https://boykisser-clicker.vercel.app/",
-    description: "Clicker game with upgrades and leaderboard",
-    icons: [TypescriptIcon, ReactIcon],
-  },
-  {
-    title: "Usual-UI",
-    image: "src/assets/usual-ui-cover.png",
-    githubLink: "https://github.com/mi1sh/usual-ui",
-    description: "My first UI-library with tailwindcss connect",
-    icons: [TypescriptIcon, ReactIcon],
-  }
-  ]);
 </script>
 
 <style scoped>
 .projects-cards {
   display: flex;
   flex-direction: column;
-  max-height: 100vh;
+  max-height: 93vh;
   width: 90vw;
   overflow: scroll;
 }
 
+.projects-wrapper {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
 .wrapper {
+  max-height: 100vh;
   display: flex;
   place-items: center;
   align-items: center;
   justify-content: center;
 }
 
+.projects-title {
+  text-align: center;
+  margin: 0em 0em 0.5em 0em;
+}
+
 @media (min-width: 740px) {
+  .projects-title {
+    display: none;
+    visibility: hidden;
+  }
+
   .projects-cards {
     display: grid;
     width: 100%;

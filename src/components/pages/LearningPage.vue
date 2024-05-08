@@ -1,7 +1,7 @@
 <template>
   <PageWrapper :animate="animate">
     <section id="learning" class="wrapper">
-      <h1 class="learning-title gold">My certificates:</h1>
+      <h1 class="learning-title gold">Certificates</h1>
       <div class="certificates-wrapper">
         <CertificateItem image="src/assets/fcc-responsive-web-design-cert.jpg" title="Responsive Web Design" organisation="freeCodeCamp" description="" pageLink="https://www.freecodecamp.org/certification/mishshim/responsive-web-design"/>
         <CertificateItem image="src/assets/udemy-js-react-cert.jpg" title="Full Javascript + React course" organisation="Udemy" description="" pageLink="https://ude.my/UC-ca0e2190-f5b7-40bc-a7fd-0af7196c6951"/>

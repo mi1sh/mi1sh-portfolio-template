@@ -19,7 +19,6 @@ const animate = inject('animate')
 
 const route = useRoute()
 const isLoaded = ref(false)
-const isMobile = window.matchMedia('(max-width: 768px)').matches
 
 defineProps<{
   isLargeScreen: boolean,
