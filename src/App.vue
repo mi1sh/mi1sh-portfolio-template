@@ -11,6 +11,7 @@
 
   <main>
     <div class="gradient-bar"></div>
+    <h4 style="color: #af9259">powered by <IconVue/></h4>
     <div class="navbar-wrapper slide-right" :class="{ 'navbar-visible': isLargeScreen }">
       <NavBar v-show="isLargeScreen"/>
     </div>
@@ -26,6 +27,7 @@ import HomePage from '@/components/pages/HomePage.vue'
 import AboutPage from '@/components/pages/AboutPage.vue'
 import ProjectsPage from '@/components/pages/ProjectsPage.vue'
 import LearningPage from '@/components/pages/LearningPage.vue'
+import IconVue from '@/components/icons/IconVue.vue'
 
 const { activeSection, animate } = useActiveSectionService();
 provide('activeSection', activeSection);
@@ -60,7 +62,12 @@ onUnmounted(() => {
 </script>
 
 
-<style>
+<style scoped>
+h4 {
+  margin: 1em;
+  position: absolute;
+}
+
 .navbar-wrapper {
   display: none;
 }

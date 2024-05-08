@@ -10,6 +10,13 @@ a {
   color: #af9259;
   transition: ease-in-out 0.2s;
   text-decoration: none;
+  padding-bottom: 1px;
+}
+
+.wrapper {
+  width: 100vw;
+  height: 100vh;
+  place-items: center;
 }
 
 .gold {
@@ -70,15 +77,18 @@ hr{
 
 .slide-left {
   opacity: 0;
+  visibility: hidden;
   animation: slideLeftAnimation 1s forwards;
 }
 
 @keyframes slideLeftAnimation {
   from {
+    visibility: hidden;
     opacity: 0;
     transform: translateX(-5%);
   }
   to {
+    visibility: visible;
     opacity: 1;
     transform: translateX(0%);
   }
@@ -146,6 +156,17 @@ hr{
   }
 }
 
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+.typing-text {
+  overflow: hidden;
+  white-space: nowrap;
+  animation: typing 1.5s steps(25, end)
+}
+
 @media (hover: hover) {
   a:hover {
     color: #f4cd7c;
@@ -154,6 +175,7 @@ hr{
 
 @media screen and (min-width: 740px) {
   .wrapper {
+    width: 90%;
     height: 100vh;
     padding-right: calc(var(--section-gap) / 2);
     display: flex;
@@ -178,17 +200,27 @@ hr{
     --b: 2px; /* thickness of the line */
     --m: 1; /* curvature of the wave [0 2] */
 
-    margin-left: 10em;
+    margin-left: 8em;
     background: var(--vt-c-text-dark-2);
     --R: calc(var(--s)*sqrt(var(--m)*var(--m) + 1) + var(--b)/2);
     height: calc(2*var(--R));
-    width: 75%;
+    width: 70%;
     --_g: #0000 calc(99% - var(--b)), #000 calc(101% - var(--b)) 99%, #0000 101%;
     mask:
         radial-gradient(var(--R) at left 50% bottom calc(-1*var(--m)*var(--s)), var(--_g))
         calc(50% - 2*var(--s)) calc(50% - var(--s)/2 - var(--b)/2)/calc(4*var(--s)) calc(var(--s) + var(--b)) repeat-x,
         radial-gradient(var(--R) at left 50% top calc(-1*var(--m)*var(--s)),var(--_g))
         50% calc(50% + var(--s)/2 + var(--b)/2)/calc(4*var(--s)) calc(var(--s) + var(--b)) repeat-x;
+  }
+
+  @keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: #a68b57; } /* Используйте тот же цвет, что и для текста */
+  }
+
+  .typing-text {
+    animation: typing 1.5s steps(25, end), blink-caret .99s step-end infinite;
+    border-right: 0.05em solid #f4cd7c;
   }
 
 }

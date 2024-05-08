@@ -1,5 +1,5 @@
 <template>
-  <div :class="{'slide-left': animate}">
+  <div :class="{'slide-left': animate && isMobile}">
     <slot></slot>
   </div>
 </template>
@@ -9,6 +9,8 @@
 const props = defineProps({
   animate: Boolean,
 });
+
+const isMobile = window.matchMedia('(min-width: 768px)').matches
 </script>
 
 

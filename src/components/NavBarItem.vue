@@ -23,6 +23,9 @@
     color: #f4cd7c;
     transition: ease-in-out 0.4s;
   }
+  .details {
+    color: #f4cd7c;
+  }
  }
 
 h3 {
