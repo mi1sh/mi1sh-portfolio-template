@@ -74,9 +74,8 @@ onUnmounted(() => {
 .projects-cards {
   display: flex;
   flex-direction: column;
-  max-height: 93vh;
+  max-height: none;
   width: 90vw;
-  overflow: scroll;
 }
 
 .projects-wrapper {
@@ -86,8 +85,7 @@ onUnmounted(() => {
 }
 
 .wrapper {
-  max-height: 100vh;
-  display: flex;
+  height: auto;
   place-items: center;
   align-items: center;
   justify-content: center;
@@ -95,10 +93,14 @@ onUnmounted(() => {
 
 .projects-title {
   text-align: center;
-  margin: 0em 0em 0.5em 0em;
+  margin: 2em 0em 0.5em 0em;
 }
 
 @media (min-width: 740px) {
+  .wrapper {
+    height: 100vh;
+  }
+
   .projects-title {
     display: none;
     visibility: hidden;

@@ -51,12 +51,22 @@ onMounted(() => {
   place-items: center;
   flex-direction: column;
   gap: 2vh;
-  padding-bottom: 2em;
 }
 
 .learning-title {
   text-align: center;
   width: 100%;
   margin: 2.5em 0em 1.5em 0em;
+}
+
+@media (min-width: 740px) {
+  .learning-title {
+    display: none;
+  }
+
+  .certificates-wrapper {
+    margin-top: 10vh;
+    padding-bottom: 2em;
+  }
 }
 </style>

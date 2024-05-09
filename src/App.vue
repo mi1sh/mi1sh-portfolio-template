@@ -11,7 +11,7 @@
 
   <main>
     <div class="gradient-bar"></div>
-    <h4 style="color: #af9259">powered by <IconVue/></h4>
+    <h4 class="powered-by" style="color: #af9259">powered by <IconVue/></h4>
     <div class="navbar-wrapper slide-right" :class="{ 'navbar-visible': isLargeScreen }">
       <NavBar v-show="isLargeScreen"/>
     </div>
@@ -62,9 +62,9 @@ onUnmounted(() => {
 
 
 <style scoped>
-h4 {
-  margin: 1em;
-  position: absolute;
+.powered-by {
+  margin-bottom: 4vh;
+  text-align: center;
 }
 
 .navbar-wrapper {
@@ -88,6 +88,11 @@ h4 {
     float: right;
     position: fixed;
     right: 0;
+  }
+
+  .powered-by {
+    margin: 1em;
+    position: absolute;
   }
 
   .navbar-wrapper.navbar-visible{
