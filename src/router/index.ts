@@ -38,7 +38,7 @@ const router = createRouter({
     } else if (to.meta.scrollToTop) {
       return { top: 0 };
     } else if (to.meta.scrollToSection) {
-      const sectionElement = document.getElementById(to.meta.scrollToSection);
+      const sectionElement = document.getElementById(to.meta.scrollToSection as string);
       if (sectionElement) {
         sectionElement.scrollIntoView({ behavior: 'smooth' }); // Исправлено здесь
       }
