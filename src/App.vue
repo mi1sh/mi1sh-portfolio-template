@@ -32,7 +32,6 @@ import IconVue from '@/components/icons/IconVue.vue'
 const { activeSection, animate } = useActiveSectionService();
 provide('activeSection', activeSection);
 provide('animate', animate);
-
 const router = useRouter();
 
 const isLargeScreen = ref(false)

@@ -7,6 +7,7 @@ defineProps<{
   msg: string,
   name: string,
   intro: string,
+  githubLink: string,
 }>()
 </script>
 
@@ -16,7 +17,7 @@ defineProps<{
     <div>
       <h1 class="typing-text gold"><span style="font-size: 0.6em">{{ `<` }}</span>{{ name }}<span style="font-size: 0.6em; padding-right: 0.1em">{{ `/>` }}</span></h1>
       <div class="contacts">
-        <a class="contacts-item" href="https://github.com/mi1sh" target="_blank"><IconGithub/></a>
+        <a class="contacts-item" :href="githubLink" target="_blank"><IconGithub/></a>
         <a class="contacts-item" href="https://t.me/m1ish" target="_blank"><IconTelegram/></a>
         <a class="contacts-item" href="https://www.instagram.com/droch1la_/" target="_blank"><IconInstagram/></a>
       </div>
