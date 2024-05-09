@@ -1,21 +1,31 @@
 <template>
-  <PageWrapper :animate="animate">
-    <section :key="$route.path" id="about" class="wrapper">
+    <section :key="$route.path" id="about" class="wrapper slide-left">
       <div class="about-wrapper">
         <h1>My name is <span class="gold">Mikhail</span>, I am a self-taught developer from <span class="gold">Kazakhstan</span>.</h1>
         <h3>I started doing web development in <span class="dark-gold">2022</span>, considering it a <span class="dark-gold">hobby</span> and a <span class="dark-gold">good starting point</span> for me. I've been using <span class="dark-gold">React</span> most of the time, and I can call it my favorite tool.</h3>
         <h3>Sometimes I use <span class="dark-gold">AI</span> to help me develop new ideas for personal projects. I'm not going to stop, <span class="dark-gold">I like learning</span> something new and <span class="dark-gold">getting better</span> at what I already know.</h3>
       </div>
     </section>
-  </PageWrapper>
 </template>
 
 <script setup lang="ts">
-import { inject, onMounted, ref, watchEffect } from 'vue'
-import PageWrapper from '@/components/PageWrapper.vue'
+import { onMounted, ref } from 'vue'
+import { useRoute } from 'vue-router'
 
-const activeSection = inject('activeSection')
-const animate = inject('animate')
+const route = useRoute()
+const isLoaded = ref(false)
+const isAboutPage = ref(false)
+
+onMounted(() => {
+  isAboutPage.value = route.path === '/about'
+  const element = document.getElementById('about')
+  if (element) {
+    element.scrollIntoView({ behavior: 'smooth' })
+  }
+  setTimeout(() => {
+    isLoaded.value = true
+  }, 500)
+});
 </script>
 
 

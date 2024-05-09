@@ -1,5 +1,5 @@
 <template>
-  <section :key="$route.path" id="home" class="wrapper" :class="{'fade-in': isMobile, 'slide-left': !isMobile}">
+  <section :key="$route.path" id="home" class="wrapper" :class="{'fade-in': !isLargeScreen, 'slide-left': isLargeScreen}">
     <img alt="mi1sh logo" class="logo" src="../../assets/logo.jpg" />
     <div>
       <IntroCard intro="React, Next and Vue confident user" name="mi1sh" msg="Web developer" />
@@ -9,13 +9,8 @@
 
 <script setup lang="ts">
 import IntroCard from '@/components/IntroCard.vue'
-import { onMounted, ref, watchEffect } from 'vue'
-import { inject } from 'vue'
+import { onMounted, ref } from 'vue'
 import { useRoute } from 'vue-router'
-import PageWrapper from '@/components/PageWrapper.vue'
-
-const activeSection = inject('activeSection')
-const animate = inject('animate')
 
 const route = useRoute()
 const isLoaded = ref(false)
@@ -34,13 +29,6 @@ onMounted(() => {
   setTimeout(() => {
     isLoaded.value = true
   }, 500)
-})
-
-const shouldAnimate = ref(false)
-watchEffect(() => {
-  if (isHomePage.value && !shouldAnimate.value) {
-    shouldAnimate.value = true
-  }
 })
 </script>
 
