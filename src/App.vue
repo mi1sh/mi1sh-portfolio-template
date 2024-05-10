@@ -1,6 +1,6 @@
 <template>
   <header>
-    <HomePage :isLargeScreen="isLargeScreen" />
+    <HomePage :isLargeScreen="isLargeScreen"/>
     <hr>
     <AboutPage />
     <hr>
@@ -11,19 +11,17 @@
 
   <main>
     <div class="gradient-bar"></div>
-    <h4 class="powered-by" style="color: #af9259">powered by
-      <IconVue />
-    </h4>
+    <h4 class="powered-by" style="color: #af9259">powered by <IconVue/></h4>
     <div class="navbar-wrapper slide-right" :class="{ 'navbar-visible': isLargeScreen }">
-      <NavBar v-show="isLargeScreen" />
+      <NavBar v-show="isLargeScreen"/>
     </div>
   </main>
 </template>
 
 <script setup lang="ts">
-import { useActiveSectionService } from '@/services/activeSectionService'
+import {useActiveSectionService} from '@/services/activeSectionService'
 import { onMounted, onUnmounted, ref, provide } from 'vue'
-import { useRouter } from 'vue-router'
+import { useRouter } from 'vue-router';
 import NavBar from './components/NavBar.vue'
 import HomePage from '@/components/pages/HomePage.vue'
 import AboutPage from '@/components/pages/AboutPage.vue'
@@ -31,13 +29,13 @@ import ProjectsPage from '@/components/pages/ProjectsPage.vue'
 import LearningPage from '@/components/pages/LearningPage.vue'
 import IconVue from '@/components/icons/IconVue.vue'
 
-const { activeSection, animate } = useActiveSectionService()
-provide('activeSection', activeSection)
-provide('animate', animate)
-const router = useRouter()
+const { activeSection, animate } = useActiveSectionService();
+provide('activeSection', activeSection);
+provide('animate', animate);
+const router = useRouter();
 
 const isLargeScreen = ref(false)
-let unsubscribe: any
+let unsubscribe: any;
 
 const handleResize = () => {
   isLargeScreen.value = window.innerWidth > 768
@@ -48,15 +46,17 @@ onMounted(() => {
   handleResize()
 
   window.onload = () => {
-    if (router.currentRoute.value.name === 'Home') {
-      window.scrollTo({ top: 0, behavior: 'smooth' })
-    }
+    setTimeout(() => {
+      if (router.currentRoute.value.name === 'Home') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }, 100);
   }
-})
+});
 
 onUnmounted(() => {
   if (unsubscribe) {
-    unsubscribe()
+    unsubscribe();
   }
   window.removeEventListener('resize', handleResize)
 })
@@ -97,7 +97,7 @@ onUnmounted(() => {
     position: absolute;
   }
 
-  .navbar-wrapper.navbar-visible {
+  .navbar-wrapper.navbar-visible{
     width: 10vw;
     height: 100vh;
     float: right;
