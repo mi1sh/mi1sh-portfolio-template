@@ -42,7 +42,7 @@ h1 {
   background: linear-gradient(#f4cd7c, #73603d);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-family: "BigBlueTermPlus Nerd Font Mono", sans-serif;
+  font-family: "BigBlueTermPlus", sans-serif;
 }
 
 h2 {
