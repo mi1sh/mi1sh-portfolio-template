@@ -2,17 +2,17 @@
   <section :key="$route.path" id="learning" class="wrapper slide-left">
     <h1 class="learning-title gold">Certificates</h1>
     <div class="certificates-wrapper">
-      <CertificateItem image="src/assets/fcc-responsive-web-design-cert.jpg" title="Responsive Web Design"
+      <CertificateItem :image="responsiveWebDesignCert" title="Responsive Web Design"
                        organisation="freeCodeCamp" description=""
                        pageLink="https://www.freecodecamp.org/certification/mishshim/responsive-web-design" />
-      <CertificateItem image="src/assets/udemy-js-react-cert.jpg" title="Full Javascript + React course"
+      <CertificateItem :image="fullJsReactCourseCert" title="Full Javascript + React course"
                        organisation="Udemy" description=""
                        pageLink="https://ude.my/UC-ca0e2190-f5b7-40bc-a7fd-0af7196c6951" />
-      <CertificateItem image="src/assets/webdev-cert.jpg" title="WEB-developer" organisation="Udemy" description=""
+      <CertificateItem :image="webDeveloperCert" title="WEB-developer" organisation="Udemy" description=""
                        pageLink="https://ude.my/UC-f44fbaee-3deb-4761-a98b-eae3f425704c" />
-      <CertificateItem image="src/assets/ts-cert.jpg" title="Typescript for modern development" organisation="Udemy"
+      <CertificateItem :image="typescriptCert" title="Typescript for modern development" organisation="Udemy"
                        description="" pageLink="https://ude.my/UC-937e5838-a508-4fa3-b486-65263d57f180" />
-      <CertificateItem image="src/assets/stepik-wp-cert.png" title="Wordpress, site layout and transfer to CMS"
+      <CertificateItem :image="wordpressCert" title="Wordpress, site layout and transfer to CMS"
                        organisation="Stepik" description="" pageLink="https://stepik.org/cert/2224679" />
     </div>
   </section>
@@ -22,6 +22,12 @@
 import CertificateItem from '@/components/CertificateItem.vue'
 import { useRoute } from 'vue-router'
 import { onMounted, ref } from 'vue'
+
+import responsiveWebDesignCert from '../../assets/fcc-responsive-web-design-cert.jpg'
+import fullJsReactCourseCert from '../../assets/udemy-js-react-cert.jpg'
+import webDeveloperCert from '../../assets/webdev-cert.jpg'
+import typescriptCert from '../../assets/ts-cert.jpg'
+import wordpressCert from '../../assets/stepik-wp-cert.png'
 
 const route = useRoute()
 const isLoaded = ref(false)

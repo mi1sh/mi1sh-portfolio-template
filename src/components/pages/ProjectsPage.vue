@@ -3,19 +3,19 @@
     <div class="projects-wrapper">
       <h1 class="gold projects-title">Projects</h1>
       <div class="projects-cards">
-        <ProjectCard title="Typespeed - test" image="src/assets/typespeed-test-cover.png"
+        <ProjectCard title="Typespeed - test" :image="typeSpeedTestCover"
                      githubLink="https://github.com/mi1sh/typespeed-test" pageLink="https://typespeed-test.vercel.app/"
                      description="My simple application for practice in typing text"
                      :icons="[JavascriptIcon, ReactIcon]" />
-        <ProjectCard title="Add - some - text" image="src/assets/add-some-text-cover.png"
+        <ProjectCard title="Add - some - text" :image="addSomeTextCover"
                      githubLink="https://github.com/mi1sh/add-some-text" pageLink="https://add-some-text.vercel.app/"
                      description="A simple photo editor (or meme creator), made using next.js"
                      :icons="[TypescriptIcon, NextIcon]" />
-        <ProjectCard title="Boykisser clicker" image="src/assets/boykisser-clicker-cover.png"
+        <ProjectCard title="Boykisser clicker" :image="boykisserClickerCover"
                      githubLink="https://github.com/mi1sh/boykisser-clicker"
                      pageLink="https://boykisser-clicker.vercel.app"
                      description="Clicker game with upgrades and leaderboard" :icons="[TypescriptIcon, ReactIcon]" />
-        <ProjectCard title="Usual-UI" image="src/assets/usual-ui-cover.png"
+        <ProjectCard title="Usual-UI" :image="usualUiCover"
                      githubLink="https://github.com/mi1sh/usual-ui"
                      description="My first UI-library with tailwindcss connect" :icons="[TypescriptIcon, ReactIcon]" />
       </div>
@@ -24,22 +24,22 @@
 </template>
 
 <script setup lang="ts">
-
 import { nextTick } from 'vue'
 import { useRoute } from 'vue-router'
 import { onMounted, onUnmounted, ref, watch } from 'vue'
+
+import typeSpeedTestCover from '../../assets/typespeed-test-cover.png'
+import addSomeTextCover from '../../assets/add-some-text-cover.png'
+import boykisserClickerCover from '../../assets/boykisser-clicker-cover.png'
+import usualUiCover from '../../assets/usual-ui-cover.png'
+
 import ProjectCard from '@/components/ProjectCard.vue'
 import TypescriptIcon from '@/components/icons/TypescriptIcon.vue'
-
 import JavascriptIcon from '@/components/icons/JavascriptIcon.vue'
-
-
 import ReactIcon from '@/components/icons/ReactIcon.vue'
-
 import NextIcon from '@/components/icons/NextIcon.vue'
 
 const isLargeScreen = ref(window.innerWidth > 740)
-
 const checkScreenSize = () => {
   isLargeScreen.value = window.innerWidth > 740
 }
