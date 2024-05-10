@@ -45,12 +45,14 @@ onMounted(() => {
   window.addEventListener('resize', handleResize)
   handleResize()
 
-  unsubscribe = router.afterEach((to, from) => {
-    if (to.name === 'Home') {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-  });
-})
+  window.onload = () => {
+    setTimeout(() => {
+      if (router.currentRoute.value.name === 'Home') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }, 100);
+  }
+});
 
 onUnmounted(() => {
   if (unsubscribe) {
