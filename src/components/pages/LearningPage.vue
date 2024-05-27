@@ -5,6 +5,9 @@
       <CertificateItem :image="responsiveWebDesignCert" title="Responsive Web Design"
                        organisation="freeCodeCamp" description=""
                        pageLink="https://www.freecodecamp.org/certification/mishshim/responsive-web-design" />
+      <CertificateItem :image="jsAlgorithmsCert" title="JavaScript Algorithms and Data Structures"
+                       organisation="freeCodeCamp" description=""
+                       pageLink="https://www.freecodecamp.org/certification/mi1sh/javascript-algorithms-and-data-structures-v8" />
       <CertificateItem :image="fullJsReactCourseCert" title="Full Javascript + React course"
                        organisation="Udemy" description=""
                        pageLink="https://ude.my/UC-ca0e2190-f5b7-40bc-a7fd-0af7196c6951" />
@@ -24,6 +27,7 @@ import { useRoute } from 'vue-router'
 import { onMounted, ref } from 'vue'
 
 import responsiveWebDesignCert from '../../assets/fcc-responsive-web-design-cert.jpg'
+import jsAlgorithmsCert from '../../assets/fcc-js-cert.jpg'
 import fullJsReactCourseCert from '../../assets/udemy-js-react-cert.jpg'
 import webDeveloperCert from '../../assets/webdev-cert.jpg'
 import typescriptCert from '../../assets/ts-cert.jpg'
