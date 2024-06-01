@@ -75,7 +75,6 @@ onUnmounted(() => {
   display: flex;
   flex-direction: column;
   max-height: none;
-  width: 90vw;
 }
 
 .projects-wrapper {

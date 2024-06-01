@@ -102,10 +102,10 @@ a {
 
 .next-color {
   font-weight: bolder;
-  color: #000000;
+  color: #282a49;
   vertical-align: middle;
   &:hover {
-    color: #0c0c0c;
+    color: #1e1f41;
   }
 }
 

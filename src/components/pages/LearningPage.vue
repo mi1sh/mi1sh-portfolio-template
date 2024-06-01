@@ -1,5 +1,9 @@
 <template>
   <section :key="$route.path" id="learning" class="wrapper slide-left">
+    <div class="books-wrapper">
+      <BookItem title="Clean code. Creating and refactoring with Agile" author="Robert M."/>
+      <BookItem title="Grokking Algorithms: An Illustrated Guide for Programmers and Other Curious People" author="Aditya Y."/>
+    </div>
     <h1 class="learning-title gold">Certificates</h1>
     <div class="certificates-wrapper">
       <CertificateItem :image="responsiveWebDesignCert" title="Responsive Web Design"
@@ -32,6 +36,7 @@ import fullJsReactCourseCert from '../../assets/udemy-js-react-cert.jpg'
 import webDeveloperCert from '../../assets/webdev-cert.jpg'
 import typescriptCert from '../../assets/ts-cert.jpg'
 import wordpressCert from '../../assets/stepik-wp-cert.png'
+import BookItem from '@/components/BookItem.vue'
 
 const route = useRoute()
 const isLoaded = ref(false)
@@ -69,6 +74,11 @@ onMounted(() => {
   margin: 2.5em 0em 1.5em 0em;
 }
 
+.books-wrapper {
+  width: 100%;
+  margin-top: 3em;
+}
+
 @media (min-width: 740px) {
   .learning-title {
     display: none;
@@ -77,6 +87,11 @@ onMounted(() => {
   .certificates-wrapper {
     margin-top: 10vh;
     padding-bottom: 2em;
+  }
+
+  .books-wrapper {
+    width: 100%;
+    margin-top: 2em;
   }
 }
 </style>
