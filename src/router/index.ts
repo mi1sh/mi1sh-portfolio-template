@@ -40,7 +40,7 @@ const router = createRouter({
     } else if (to.meta.scrollToSection) {
       const sectionElement = document.getElementById(to.meta.scrollToSection as string);
       if (sectionElement) {
-        sectionElement.scrollIntoView({ behavior: 'smooth' }); // Исправлено здесь
+        sectionElement.scrollIntoView({ behavior: 'smooth' });
       }
     }
   }

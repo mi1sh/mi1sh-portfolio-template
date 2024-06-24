@@ -43,20 +43,13 @@ onMounted(async() => {
 
 <template>
   <section :key="$route.path" id="home" class="wrapper" :class="{'fade-in': !isLargeScreen, 'slide-left': isLargeScreen}">
-    <img alt="mi1sh logo" class="logo" src="../../assets/logo.jpg" />
     <div>
-      <IntroCard :intro="intro" :githubLink="githubLink" :name="name" :msg="msg" />
+      <IntroCard v-cloak :intro="intro" :githubLink="githubLink" :name="name" :msg="msg" />
     </div>
   </section>
 </template>
 
 <style scoped>
-.logo {
-  width: 15em;
-  border-radius: 100%;
-  display: block;
-  margin: 3em auto;
-}
 
 .wrapper {
   padding-top: 10vh;
@@ -71,17 +64,6 @@ onMounted(async() => {
     padding-top: 0;
     padding-bottom: 0;
     flex-direction: row;
-  }
-
-  .logo {
-    width: 23em;
-    border-radius: 100%;
-    display: block;
-    margin: 0;
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
   }
 }
 </style>
