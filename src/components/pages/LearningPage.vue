@@ -8,7 +8,7 @@
     <div class="certificates-wrapper">
       <CertificateItem :image="responsiveWebDesignCert" title="Responsive Web Design"
                        organisation="freeCodeCamp" description=""
-                       pageLink="https://www.freecodecamp.org/certification/mishshim/responsive-web-design" />
+                       pageLink="https://www.freecodecamp.org/certification/mi1sh/responsive-web-design" />
       <CertificateItem :image="jsAlgorithmsCert" title="JavaScript Algorithms and Data Structures"
                        organisation="freeCodeCamp" description=""
                        pageLink="https://www.freecodecamp.org/certification/mi1sh/javascript-algorithms-and-data-structures-v8" />
