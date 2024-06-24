@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import IntroCard from '@/components/IntroCard.vue'
-import { inject, onMounted, ref } from 'vue'
+import { onMounted, ref } from 'vue'
 import { useRoute } from 'vue-router'
 import { fetchGithubUser } from '@/services/githubFetchService';
 
@@ -27,7 +27,6 @@ onMounted(async() => {
 
   try {
     const userData = await fetchGithubUser('mi1sh')
-    console.log(userData)
     intro.value = userData.bio
     githubLink.value = userData.html_url
     name.value = userData.login

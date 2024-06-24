@@ -5,6 +5,10 @@
   font-weight: normal;
 }
 
+.loader {
+  display: none;
+}
+
 a {
   cursor: pointer;
   color: #af9259;
