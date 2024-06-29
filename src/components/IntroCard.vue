@@ -2,8 +2,8 @@
 import IconGithub from '@/components/icons/IconGithub.vue'
 import IconTelegram from '@/components/icons/IconTelegram.vue'
 import IconInstagram from '@/components/icons/IconInstagram.vue'
+import { ref, onMounted } from 'vue'
 import logo from '../assets/logo.jpg'
-import { onMounted, ref } from 'vue'
 
 const props = defineProps<{
   msg: string,
@@ -17,26 +17,22 @@ const isLoaded = ref(false)
 onMounted(() => {
   const image = new Image()
   image.src = logo
-  if (props.msg && props.name && props.intro && props.githubLink) {
-    image.onload = () => {
-      return isLoaded.value = true
-    }
-  } else {
-    console.error("Data is not loaded")
+  image.onload = () => {
+    isLoaded.value = true
   }
 })
 </script>
 
 <template>
   <div class="greetings">
-      <span v-if="!isLoaded" class="loader"></span>
+    <span v-if="!isLoaded" class="loader"></span>
     <div v-else class="intro-wrapper">
       <img alt="mi1sh logo" class="logo" :src="logo" />
       <div class="info-wrapper">
         <h2>{{ props.msg }}</h2>
         <h1 class="typing-text gold"><span style="font-size: 0.6em">{{ `<` }}</span>{{ props.name }}<span style="font-size: 0.6em; padding-right: 0.1em">{{ `/>` }}</span></h1>
         <div class="contacts">
-          <a class="contacts-item" :href="githubLink" target="_blank"><IconGithub/></a>
+          <a class="contacts-item" :href="props.githubLink" target="_blank"><IconGithub/></a>
           <a class="contacts-item" href="https://t.me/m1ish" target="_blank"><IconTelegram/></a>
           <a class="contacts-item" href="https://www.instagram.com/droch1la_/" target="_blank"><IconInstagram/></a>
         </div>
@@ -91,20 +87,20 @@ h3 {
   margin: 0 auto;
   width: 105px;
   height: 60px;
-  --g1:conic-gradient(from  90deg at left   3px top   3px,#0000 90deg,#f4cd7c 0);
+  --g1:conic-gradient(from 90deg at left 3px top 3px,#0000 90deg,#f4cd7c 0);
   --g2:conic-gradient(from -90deg at bottom 3px right 3px,#0000 90deg,#af9259 0);
-  background:var(--g1),var(--g1),var(--g1), var(--g2),var(--g2),var(--g2);
+  background:var(--g1),var(--g1),var(--g1),var(--g2),var(--g2),var(--g2);
   background-position: left,center,right;
   background-repeat: no-repeat;
   animation: loading 0.7s infinite;
 }
 
 @keyframes loading {
-  0%   {background-size:25px 50% ,25px 50% ,25px 50%}
-  25%  {background-size:25px 100%,25px 50% ,25px 50%}
-  50%  {background-size:25px 50% ,25px 100%,25px 50%}
-  75%  {background-size:25px 50% ,25px 50% ,25px 100%}
-  100% {background-size:25px 50% ,25px 50% ,25px 50%}
+  0% { background-size: 25px 50%, 25px 50%, 25px 50%; }
+  25% { background-size: 25px 100%, 25px 50%, 25px 50%; }
+  50% { background-size: 25px 50%, 25px 100%, 25px 50%; }
+  75% { background-size: 25px 50%, 25px 50%, 25px 100%; }
+  100% { background-size: 25px 50%, 25px 50%, 25px 50%; }
 }
 
 @media (min-width: 740px) {

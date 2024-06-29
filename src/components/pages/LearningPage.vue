@@ -39,7 +39,6 @@ import wordpressCert from '../../assets/stepik-wp-cert.png'
 import BookItem from '@/components/BookItem.vue'
 
 const route = useRoute()
-const isLoaded = ref(false)
 const isLearningPage = ref(false)
 
 onMounted(() => {
@@ -48,12 +47,8 @@ onMounted(() => {
   if (element) {
     element.scrollIntoView({ behavior: 'smooth' })
   }
-  setTimeout(() => {
-    isLoaded.value = true
-  }, 500)
 });
 </script>
-
 
 <style scoped>
 .wrapper {
