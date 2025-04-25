@@ -33,8 +33,8 @@ onMounted(() => {
         <h1 class="typing-text gold"><span style="font-size: 0.6em">{{ `<` }}</span>{{ props.name }}<span style="font-size: 0.6em; padding-right: 0.1em">{{ `/>` }}</span></h1>
         <div class="contacts">
           <a class="contacts-item" :href="props.githubLink" target="_blank"><IconGithub/></a>
-          <a class="contacts-item" href="https://t.me/m1ish" target="_blank"><IconTelegram/></a>
-          <a class="contacts-item" href="https://www.instagram.com/droch1la_/" target="_blank"><IconInstagram/></a>
+          <a class="contacts-item" href="https://t.me/fvcknnerd" target="_blank"><IconTelegram/></a>
+          <a class="contacts-item" href="https://www.instagram.com/fvcknerds/" target="_blank"><IconInstagram/></a>
         </div>
         <h3>{{ props.intro }}</h3>
       </div>
